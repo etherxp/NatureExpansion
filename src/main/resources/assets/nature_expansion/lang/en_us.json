@@ -1,0 +1,8 @@
+{
+  "itemGroup.examplemod": "Example Mod Tab",
+  "block.examplemod.example_block": "Example Block",
+  "item.examplemod.example_item": "Example Item",
+
+  "item.nature_expansion.test_item": "Test Item",
+  "itemGroup.nature_expansion.nature_expansion_tab": "Nature Expansion"
+}
