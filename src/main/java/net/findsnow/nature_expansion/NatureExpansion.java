@@ -2,15 +2,15 @@ package net.findsnow.nature_expansion;
 
 import net.findsnow.nature_expansion.block.ModBlocks;
 import net.findsnow.nature_expansion.entity.ModEntities;
-import net.findsnow.nature_expansion.entity.client.BearRenderer;
+import net.findsnow.nature_expansion.entity.client.renderer.BearRenderer;
 import net.findsnow.nature_expansion.item.ModCreativeModeTabs;
 import net.findsnow.nature_expansion.item.ModItems;
+import net.findsnow.nature_expansion.registry.ModBiomeReplacements;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.api.distmarker.Dist;
@@ -40,6 +40,7 @@ public class NatureExpansion {
         ModBlocks.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         ModEntities.register(modEventBus);
+        ModBiomeReplacements.registerBiomes();
 
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);

@@ -1,4 +1,4 @@
-package net.findsnow.nature_expansion.entity.client;
+package net.findsnow.nature_expansion.entity.client.model;
 
 import net.findsnow.nature_expansion.NatureExpansion;
 import net.findsnow.nature_expansion.entity.custom.BearEntity;
@@ -20,7 +20,10 @@ public class BearModel extends GeoModel<BearEntity> {
 	}
 
 	@Override
-	public ResourceLocation getTextureResource(BearEntity animatable, @Nullable GeoRenderer<BearEntity> renderer) {
+	public ResourceLocation getTextureResource(BearEntity bear, @Nullable GeoRenderer<BearEntity> renderer) {
+		if (bear.isSleeping()) {
+			return ResourceLocation.fromNamespaceAndPath(NatureExpansion.MOD_ID, "textures/entity/bear/bear_sleep.png");
+		}
 		return ResourceLocation.fromNamespaceAndPath(NatureExpansion.MOD_ID, "textures/entity/bear/bear.png");
 	}
 
@@ -41,16 +44,14 @@ public class BearModel extends GeoModel<BearEntity> {
 
 	@Override
 	public void setCustomAnimations(BearEntity animatable, long instanceId, AnimationState<BearEntity> animationState) {
-		GeoBone head = this.getAnimationProcessor().getBone("head");
+		if (!animatable.isRoaring()) {
+			GeoBone head = this.getAnimationProcessor().getBone("head");
 
-		if (animatable.isBaby()) {
-			head.setScaleX(1.2F); head.setScaleY(1.2F); head.setScaleZ(1.2F);
-		}
-
-		if (head != null) {
-			EntityModelData entityModelData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);
-			head.setRotX(entityModelData.headPitch() * Mth.DEG_TO_RAD);
-			head.setRotY(entityModelData.netHeadYaw() * Mth.DEG_TO_RAD);
+			if (head != null) {
+				EntityModelData entityModelData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);
+				head.setRotX(entityModelData.headPitch() * Mth.DEG_TO_RAD);
+				head.setRotY(entityModelData.netHeadYaw() * Mth.DEG_TO_RAD);
+			}
 		}
 	}
 }
