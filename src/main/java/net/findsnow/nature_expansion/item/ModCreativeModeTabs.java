@@ -1,6 +1,7 @@
 package net.findsnow.nature_expansion.item;
 
 import net.findsnow.nature_expansion.NatureExpansion;
+import net.findsnow.nature_expansion.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -21,6 +22,19 @@ public class ModCreativeModeTabs {
 					.displayItems((itemDisplayParameters, output) -> {
 						output.accept(ModItems.TEST_ITEM);
 						output.accept(ModItems.BEAR_SPAWN_EGG);
+						output.accept(ModBlocks.MAPLE_LOG.get());
+						output.accept(ModBlocks.MAPLE_WOOD.get());
+						output.accept(ModBlocks.STRIPPED_MAPLE_LOG.get());
+						output.accept(ModBlocks.STRIPPED_MAPLE_WOOD.get());
+						output.accept(ModBlocks.MAPLE_PLANKS.get());
+						output.accept(ModBlocks.RED_MAPLE_SAPLING.get());
+						output.accept(ModBlocks.GREEN_MAPLE_SAPLING.get());
+						output.accept(ModBlocks.ORANGE_MAPLE_SAPLING.get());
+						output.accept(ModBlocks.RED_MAPLE_LEAVES.get());
+						output.accept(ModBlocks.ORANGE_MAPLE_LEAVES.get());
+						output.accept(ModBlocks.GREEN_MAPLE_LEAVES.get());
+						output.accept(ModBlocks.MAPLE_LEAF_LITTER.get());
+						output.accept(ModBlocks.TREE_TAP.get());
 					})
 					.build());
 

@@ -9,7 +9,7 @@ import net.minecraft.world.level.biome.Biome;
 public class ModBiomes {
 
 	public static final ResourceKey<Biome> AUTUMN_FOREST = registerBiome("autumn_forest");
-
+	public static final ResourceKey<Biome> AUTUMN_FIELDS = registerBiome("autumn_fields");
 
 	public static ResourceKey<Biome> registerBiome(String name) {
 		return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(NatureExpansion.MOD_ID, name));

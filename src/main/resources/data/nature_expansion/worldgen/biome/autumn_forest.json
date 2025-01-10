@@ -8,9 +8,9 @@
   },
   "downfall": 0.8,
   "effects": {
-    "fog_color": 13822166,
-    "grass_color": 13217363,
-    "foliage_color": 11314505,
+    "fog_color": 13685935,
+    "grass_color": 15966558,
+    "foliage_color": 10727243,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2,
@@ -23,9 +23,9 @@
       "replace_current_music": false,
       "sound": "minecraft:music.overworld.forest"
     },
-    "sky_color": 7715315,
-    "water_color": 3902136,
-    "water_fog_color": 329011
+    "sky_color": 7903449,
+    "water_color": 3965354,
+    "water_fog_color": 592170
   },
   "features": [
     [],
@@ -79,14 +79,19 @@
       "minecraft:spring_lava"
     ],
     [
+      "nature_expansion:trees_autumn_forest"
+    ],
+    [
       "minecraft:glow_lichen",
       "minecraft:forest_flowers",
-      "minecraft:trees_birch_and_oak",
+
       "minecraft:flower_default",
       "minecraft:patch_grass_forest",
+      "minecraft:patch_tall_grass",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
+      "nature_expansion:leaf_litter_maple",
       "minecraft:patch_pumpkin"
     ],
     [
@@ -135,12 +140,6 @@
         "maxCount": 4,
         "minCount": 4,
         "weight": 5
-      },
-      {
-        "type": "nature_expansion:bear",
-        "weight": 4,
-        "minCount": 2,
-        "maxCount": 3
       }
     ],
     "misc": [],

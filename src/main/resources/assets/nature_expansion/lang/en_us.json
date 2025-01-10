@@ -1,9 +1,26 @@
 {
-  "block.examplemod.example_block": "Example Block",
-  "item.examplemod.example_item": "Example Item",
-
-  "item.nature_expansion.test_item": "Test Item",
   "itemGroup.nature_expansion.nature_expansion_tab": "Nature Expansion",
+  "biome.nature_expansion.autumn_forest": "Autumn Forest",
+  "biome.nature_expansion.autumn_fields": "Autumn Fields",
 
-  "biome.nature_expansion.autumn_forest": "Autumn Forest"
+  "sounds.nature_expansion.maple_leaf_litter_break": "Maple Leaf Litter Break",
+  "sounds.nature_expansion.maple_leaf_litter_step": "Maple Leaf Litter Step",
+  "sounds.nature_expansion.maple_leaf_litter_place": "Maple Leaf Litter Place",
+  "sounds.nature_expansion.maple_leaf_litter_hit": "Maple Leaf Litter Hit",
+  "sounds.nature_expansion.maple_leaf_litter_fall": "Maple Leaf Litter Fall",
+
+
+  "block.nature_expansion.maple_log": "Maple Log",
+  "block.nature_expansion.maple_planks": "Maple Planks",
+  "block.nature_expansion.maple_wood": "Maple Wood",
+  "block.nature_expansion.stripped_maple_log": "Stripped Maple Log",
+  "block.nature_expansion.stripped_maple_wood": "Stripped Maple Wood",
+  "block.nature_expansion.red_maple_leaves": "Red Maple Leaves",
+  "block.nature_expansion.orange_maple_leaves": "Orange Maple Leaves",
+  "block.nature_expansion.green_maple_leaves": "Green Maple Leaves",
+  "block.nature_expansion.red_maple_sapling": "Red Maple Sapling",
+  "block.nature_expansion.orange_maple_sapling": "Orange Maple Sapling",
+  "block.nature_expansion.green_maple_sapling": "Green Maple Sapling",
+
+  "block.nature_expansion.tree_tap": "Tree Tap"
 }

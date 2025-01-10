@@ -10,10 +10,8 @@ import net.minecraft.world.level.biome.Biomes;
 
 public class ModBiomeReplacements {
 	public static void registerBiomes() {
-		BiomePlacement.replaceOverworld(
-				Biomes.FOREST,
-				ModBiomes.AUTUMN_FOREST,
-				0.3);
+		BiomePlacement.replaceOverworld(Biomes.FOREST, ModBiomes.AUTUMN_FOREST, 0.33);
+		edgeBiome(ModBiomes.AUTUMN_FOREST, ModBiomes.AUTUMN_FIELDS);
 	}
 
 

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "nature_expansion:red_maple_checked",
+    "features": [
+      {
+        "chance": 0.01,
+        "feature": "minecraft:oak_checked"
+      },
+      {
+        "chance": 0.010,
+        "feature": "minecraft:fancy_oak_checked"
+      },
+      {
+        "chance": 0.2,
+        "feature": "nature_expansion:large_red_maple_checked"
+      },
+      {
+        "chance": 0.1,
+        "feature": "nature_expansion:orange_maple_checked"
+      },
+      {
+        "chance": 0.2,
+        "feature": "nature_expansion:large_orange_maple_checked"
+      },
+      {
+        "chance": 0.2,
+        "feature": "nature_expansion:green_maple_checked"
+      },
+      {
+        "chance": 0.1,
+        "feature": "nature_expansion:large_green_maple_checked"
+      }
+    ]
+  }
+}

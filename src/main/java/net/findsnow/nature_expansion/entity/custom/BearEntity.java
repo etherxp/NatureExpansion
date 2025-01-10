@@ -31,16 +31,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.animation.AnimationState;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.UUID;
 import java.util.function.Predicate;
 
-public class BearEntity extends Animal implements NeutralMob, SleepingAnimal, GeoEntity {
+public class BearEntity extends Animal implements NeutralMob, SleepingAnimal {
 
 	@Nullable
 	private UUID persistentAngerTarget;
@@ -50,23 +45,12 @@ public class BearEntity extends Animal implements NeutralMob, SleepingAnimal, Ge
 	private long lastDamageTime = 0;
 	private static final long ROAR_COOLDOWN = 600;
 
-	protected static final RawAnimation IDLE = RawAnimation.begin().thenLoop("animation.bear.idle");
-	protected static final RawAnimation WALK = RawAnimation.begin().thenLoop("animation.bear.walk");
-	protected static final RawAnimation RUN = RawAnimation.begin().thenLoop("animation.bear.run");
-	protected static final RawAnimation SLEEP = RawAnimation.begin().thenLoop("animation.bear.sleep");
-	protected static final RawAnimation LAY_DOWN = RawAnimation.begin().thenPlay("animation.bear.lay_down");
-	protected static final RawAnimation LAY_STAND = RawAnimation.begin().thenPlay("animation.bear.lay_stand");
-	protected static final RawAnimation BITE = RawAnimation.begin().thenPlay("animation.bear.bite");
-	protected static final RawAnimation ROAR = RawAnimation.begin().thenPlay("animation.bear.roar");
-
 	private static final EntityDataAccessor<Boolean> SLEEPING = SynchedEntityData.defineId(BearEntity.class, EntityDataSerializers.BOOLEAN);
 	private static final EntityDataAccessor<Boolean> SITTING = SynchedEntityData.defineId(BearEntity.class, EntityDataSerializers.BOOLEAN);
 	private static final EntityDataAccessor<Boolean> ROARING = SynchedEntityData.defineId(BearEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<Long> LAST_POSE_CHANGE_TICK = SynchedEntityData.defineId(BearEntity.class, EntityDataSerializers.LONG);
 	private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
 	private static final EntityDataAccessor<Integer> REMAINING_ANGER_TIME = SynchedEntityData.defineId(BearEntity.class, EntityDataSerializers.INT);
-
-	private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
 
 	public BearEntity(EntityType<? extends Animal> entityType, Level level) {
 		super(entityType, level);
@@ -281,50 +265,6 @@ public class BearEntity extends Animal implements NeutralMob, SleepingAnimal, Ge
 	@Override
 	protected void playHurtSound(DamageSource source) {
 		this.playSound(SoundEvents.POLAR_BEAR_HURT);
-	}
-
-	// GECKOLIB
-
-	@Override
-	public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-		controllers.add(new AnimationController<>(this, "controller", 2, this::predicate));
-		controllers.add(new AnimationController<>(this, "attackController", 0, this::attackPredicate));
-	}
-
-	private <E extends BearEntity> PlayState attackPredicate(AnimationState<E> event) {
-		if (this.swinging && event.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
-			event.getController().forceAnimationReset();
-			event.getController().setAnimation(BITE);
-			this.swinging = false;
-		}
-		return PlayState.CONTINUE;
-	}
-
-	private <E extends BearEntity> PlayState predicate(AnimationState<E> event) {
-		if (this.isSleeping()) {
-			event.getController().setAnimation(LAY_DOWN);
-			if (event.isCurrentAnimation(LAY_DOWN) && event.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
-				event.getController().setAnimation(SLEEP);
-			}
-			return PlayState.CONTINUE;
-		} else if (this.getDeltaMovement().horizontalDistanceSqr() > 1.0E-6) {
-			if (this.isSprinting()) {
-				event.getController().setAnimation(RUN);
-				return PlayState.CONTINUE;
-			} else {
-				event.getController().setAnimation(WALK);
-				return PlayState.CONTINUE;
-			}
-		} else {
-			event.getController().setAnimation(IDLE);
-		}
-		event.getController().forceAnimationReset();
-		return PlayState.STOP;
-	}
-
-	@Override
-	public AnimatableInstanceCache getAnimatableInstanceCache() {
-		return geoCache;
 	}
 
 	// GOALS

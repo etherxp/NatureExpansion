@@ -2,17 +2,18 @@ package net.findsnow.nature_expansion;
 
 import net.findsnow.nature_expansion.block.ModBlocks;
 import net.findsnow.nature_expansion.entity.ModEntities;
-import net.findsnow.nature_expansion.entity.client.renderer.BearRenderer;
 import net.findsnow.nature_expansion.item.ModCreativeModeTabs;
 import net.findsnow.nature_expansion.item.ModItems;
 import net.findsnow.nature_expansion.registry.ModBiomeReplacements;
-import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.findsnow.nature_expansion.sound.ModSoundEvents;
+import net.findsnow.nature_expansion.worldgen.ModFeatures;
+import net.findsnow.nature_expansion.worldgen.ModSurfaceRules;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -41,6 +42,8 @@ public class NatureExpansion {
         ModCreativeModeTabs.register(modEventBus);
         ModEntities.register(modEventBus);
         ModBiomeReplacements.registerBiomes();
+        ModFeatures.FEATURES.register(modEventBus);
+        ModSoundEvents.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -48,15 +51,9 @@ public class NatureExpansion {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
-
-        if (Config.logDirtBlock)
-            LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
-
-        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
-
-        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+        event.enqueueWork(() -> {
+            ModSurfaceRules.register();
+        });
     }
 
 
@@ -74,7 +71,7 @@ public class NatureExpansion {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            EntityRenderers.register(ModEntities.BEAR.get(), BearRenderer::new);
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.MAPLE_LEAF_LITTER.get(), RenderType.cutout());
         }
     }
 }
