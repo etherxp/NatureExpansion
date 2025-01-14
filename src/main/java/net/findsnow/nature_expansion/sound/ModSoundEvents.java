@@ -15,12 +15,13 @@ public class ModSoundEvents {
 	public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
 			DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, NatureExpansion.MOD_ID);
 
-	public static final Supplier<SoundEvent> LEAF_LITTER_BREAK = registerSoundEvent("maple_leaf_litter_break");
-	public static final Supplier<SoundEvent> LEAF_LITTER_STEP = registerSoundEvent("maple_leaf_litter_step");
-	public static final Supplier<SoundEvent> LEAF_LITTER_PLACE = registerSoundEvent("maple_leaf_litter_place");
-	public static final Supplier<SoundEvent> LEAF_LITTER_HIT = registerSoundEvent("maple_leaf_litter_hit");
-	public static final Supplier<SoundEvent> LEAF_LITTER_FALL = registerSoundEvent("maple_leaf_litter_fall");
-	public static final DeferredSoundType LEAF_LITTER = new DeferredSoundType(
+	public static final Supplier<SoundEvent> LEAF_LITTER_BREAK = registerSoundEvent("block.maple_leaf_litter.break");
+	public static final Supplier<SoundEvent> LEAF_LITTER_STEP = registerSoundEvent("block.maple_leaf_litter.step");
+	public static final Supplier<SoundEvent> LEAF_LITTER_PLACE = registerSoundEvent("block.maple_leaf_litter.place");
+	public static final Supplier<SoundEvent> LEAF_LITTER_HIT = registerSoundEvent("block.maple_leaf_litter.hit");
+	public static final Supplier<SoundEvent> LEAF_LITTER_FALL = registerSoundEvent("block.maple_leaf_litter.fall");
+
+	public static final DeferredSoundType LEAF_LITTER_SOUNDS = new DeferredSoundType(
 			1.0F, 1.0F,
 			ModSoundEvents.LEAF_LITTER_BREAK,
 			ModSoundEvents.LEAF_LITTER_STEP,

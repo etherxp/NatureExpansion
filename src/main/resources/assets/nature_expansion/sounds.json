@@ -1,40 +1,40 @@
 {
-  "maple_leaf_litter_break" : {
+  "block.maple_leaf_litter.break" : {
     "sounds": [
-      "nature_expansion:maple_leaf_litter_break_1",
-      "nature_expansion:maple_leaf_litter_break_2"
+      "nature_expansion:maple_leaf_litter.break1",
+      "nature_expansion:maple_leaf_litter.break2"
     ],
     "subtitle": "sounds.nature_expansion.maple_leaf_litter_break"
   },
-  "maple_leaf_litter_step" : {
+  "block.maple_leaf_litter.step" : {
     "sounds": [
-      "nature_expansion:maple_leaf_litter_step1",
-      "nature_expansion:maple_leaf_litter_step2",
-      "nature_expansion:maple_leaf_litter_step3",
-      "nature_expansion:maple_leaf_litter_step4",
-      "nature_expansion:maple_leaf_litter_step5"
+      "nature_expansion:maple_leaf_litter.step1",
+      "nature_expansion:maple_leaf_litter.step2",
+      "nature_expansion:maple_leaf_litter.step3",
+      "nature_expansion:maple_leaf_litter.step4",
+      "nature_expansion:maple_leaf_litter.step5"
     ],
     "subtitle": "sounds.nature_expansion.maple_leaf_litter_step"
   },
-  "maple_leaf_litter_place" : {
+  "block.maple_leaf_litter.place" : {
     "sounds": [
-      "nature_expansion:maple_leaf_litter_place1",
-      "nature_expansion:maple_leaf_litter_place2",
-      "nature_expansion:maple_leaf_litter_place3"
+      "nature_expansion:maple_leaf_litter.place1",
+      "nature_expansion:maple_leaf_litter.place2",
+      "nature_expansion:maple_leaf_litter.place3"
     ],
     "subtitle": "sounds.nature_expansion.maple_leaf_litter_place"
   },
-  "maple_leaf_litter_hit" : {
+  "block.maple_leaf_litter.hit" : {
     "sounds": [
-      "nature_expansion:maple_leaf_litter_hit"
+      "nature_expansion:maple_leaf_litter.hit"
     ],
     "subtitle": "sounds.nature_expansion.maple_leaf_litter_hit"
   },
-  "maple_leaf_litter_fall" : {
+  "block.maple_leaf_litter.fall" : {
     "sounds": [
-      "nature_expansion:maple_leaf_litter_fall1",
-      "nature_expansion:maple_leaf_litter_fall2",
-      "nature_expansion:maple_leaf_litter_fall3"
+      "nature_expansion:maple_leaf_litter.fall1",
+      "nature_expansion:maple_leaf_litter.fall2",
+      "nature_expansion:maple_leaf_litter.fall3"
     ],
     "subtitle": "sounds.nature_expansion.maple_leaf_litter_fall"
   }

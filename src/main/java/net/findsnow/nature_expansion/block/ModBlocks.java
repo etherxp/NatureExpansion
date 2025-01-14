@@ -101,10 +101,10 @@ public class ModBlocks {
 	public static final DeferredBlock<Block> GREEN_MAPLE_SAPLING = registerBlock("green_maple_sapling",
 			() -> new SaplingBlock(ModTreeGrower.GREEN_MAPLE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
 	public static final DeferredBlock<Block> MAPLE_LEAF_LITTER = registerBlock("maple_leaf_litter",
-			() -> new ModMapleLeafLitterBlock(BlockBehaviour.Properties.of()
+			() -> new ModMapleLeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET)
 					.strength(0.1F)
-					.sound(ModSoundEvents.LEAF_LITTER)
-					.noCollission()
+					.noOcclusion()
+					.sound(ModSoundEvents.LEAF_LITTER_SOUNDS)
 					.pushReaction(PushReaction.DESTROY)));
 
 	public static final DeferredBlock<Block> TREE_TAP = registerBlock("tree_tap",
